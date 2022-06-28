@@ -11,15 +11,14 @@ module.exports = {
       });
   },
   // Get a single user
-  getSingleStudent(req, res) {
-    Student.findOne({ _id: req.params.studentId })
+  getSingleUser(req, res) {
+    User.findOne({ _id: req.params.userId })
       .select("-__v")
-      .then(async (student) =>
-        !student
-          ? res.status(404).json({ message: "No student with that ID" })
+      .then(async (user) =>
+        !user
+          ? res.status(404).json({ message: "No user was found with that ID" })
           : res.json({
-              student,
-              grade: await grade(req.params.studentId),
+              user,
             })
       )
       .catch((err) => {
@@ -27,7 +26,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
-  // create a new student
+  // Create a new user
   createStudent(req, res) {
     Student.create(req.body)
       .then((student) => res.json(student))
