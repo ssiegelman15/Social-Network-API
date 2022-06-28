@@ -32,24 +32,13 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
-  // Delete a student and remove them from the course
-  deleteStudent(req, res) {
-    Student.findOneAndRemove({ _id: req.params.studentId })
-      .then((student) =>
-        !student
-          ? res.status(404).json({ message: "No such student exists" })
-          : Course.findOneAndUpdate(
-              { students: req.params.studentId },
-              { $pull: { students: req.params.studentId } },
-              { new: true }
-            )
-      )
-      .then((course) =>
-        !course
-          ? res.status(404).json({
-              message: "Student deleted, but no courses found",
-            })
-          : res.json({ message: "Student successfully deleted" })
+  // Delete a user by ID (and eventually add the capability to delete associated thoughts as well)
+  deleteUser(req, res) {
+    User.findOneAndRemove({ _id: req.params.userId })
+      .then(() =>
+        res.json({
+          message: "The selected user has successfully been deleted!",
+        })
       )
       .catch((err) => {
         console.log(err);
@@ -57,7 +46,7 @@ module.exports = {
       });
   },
 
-  // Add an assignment to a student
+  // Add a friend to a user
   addAssignment(req, res) {
     console.log("You are adding an assignment");
     console.log(req.body);
