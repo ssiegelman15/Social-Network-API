@@ -10,6 +10,7 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
   // Get a single user
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
@@ -26,24 +27,40 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+
   // Create a new user
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
+
   // Delete a user by ID (and eventually add the capability to delete associated thoughts as well)
   deleteUser(req, res) {
     User.findOneAndRemove({ _id: req.params.userId })
-      .then(() =>
-        res.json({
-          message: "The selected user has successfully been deleted!",
-        })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user was found with that ID!" })
+          : res.json(user)
       )
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
       });
+  },
+
+  updateUser(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $set: req.body },
+      { runValidators: true, new: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user was found with that ID!" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
   },
 
   // Add a friend to a user
@@ -64,6 +81,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   // Remove assignment from a student
   removeAssignment(req, res) {
     Student.findOneAndUpdate(
