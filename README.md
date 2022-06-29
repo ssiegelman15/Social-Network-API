@@ -23,6 +23,7 @@ A social network web application where users can share their thoughts, react to 
 - JavaScript
 - Node.js
 - Express.js
+- Day.js
 - Mongoose
 
 ## Screenshot
