@@ -61,3 +61,5 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 };
+
+// Need to add reactions to thoughts an delete reactions from thoughts
