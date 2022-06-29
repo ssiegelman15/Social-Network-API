@@ -32,7 +32,7 @@ A social network web application where users can share their thoughts, react to 
 
 ## Installation
 
-npm i
+Run npm i in your terminal to install all the dependencies.
 
 ## Usage
 
