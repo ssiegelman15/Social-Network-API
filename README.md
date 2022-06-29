@@ -20,14 +20,14 @@ A social network web application where users can share their thoughts, react to 
 
 ## Technologies
 
--   JavaScript
--   Node.js
--   Express.js
--   Mongoose
+- JavaScript
+- Node.js
+- Express.js
+- Mongoose
 
 ## Screenshot
 
-![screenshot of app](./assets/Screenshot.jpg)
+![screenshot of app](./assets/Screenshot.JPG)
 
 ## Installation
 
