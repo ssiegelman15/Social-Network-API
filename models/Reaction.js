@@ -21,9 +21,8 @@ const reactionSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now,
-      // User getter method to format timestamp on query
-      get: (date) => dayjs(date).format("MMM-D-YY [at] h:mm A"),
+      default: dayjs(),
+      get: (date) => dayjs(date).format("MMM Do YYYY [at] h:mm A"),
     },
   },
   {

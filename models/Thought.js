@@ -15,9 +15,8 @@ const thoughtSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now(),
-      // Use getter method to format the timestamp on query
-      get: (date) => dayjs(date).format("MMM-D-YY [at] h:mm A"),
+      default: dayjs(),
+      get: (date) => dayjs(date).format("MMM Do YYYY [at] h:mm A"),
     },
     username: {
       type: String,
@@ -27,7 +26,7 @@ const thoughtSchema = new Schema(
   },
   {
     toJSON: {
-      virtuals: true,
+      getters: true,
     },
     id: false,
   }
