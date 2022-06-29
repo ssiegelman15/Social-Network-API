@@ -81,7 +81,6 @@ module.exports = {
           ? res.status(404).json({ message: "No thought found with this id!" })
           : res.json(thought)
       )
-      .then(() => res.json({ message: "Reaction has been created!" }))
       .catch((err) => res.status(500).json(err));
   },
 
@@ -94,9 +93,8 @@ module.exports = {
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: "No thought found with that ID!" })
-          : Reaction.deleteMany({ _id: { $in: thought.reactions } })
+          : res.json(thought)
       )
-      .then(() => res.json({ message: "Reaction has been deleted!" }))
       .catch((err) => res.status(500).json(err));
   },
 };
