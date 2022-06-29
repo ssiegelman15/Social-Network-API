@@ -27,7 +27,7 @@ A social network web application where users can share their thoughts, react to 
 
 ## Screenshot
 
-![screenshot of app](./assets/screenshot.jpg)
+![screenshot of app](./assets/Screenshot.jpg)
 
 ## Installation
 
