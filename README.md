@@ -5,6 +5,8 @@
 ## Table of Contents
 
 - [Description](#description)
+- [Technologies](#technologies)
+- [Screenshot](#screenshot)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -15,6 +17,15 @@
 ## Description
 
 A social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.
+
+## Technologies
+
+-   JavaScript
+-   Node.js
+-   Express.js
+-   Mongoose
+
+## Screenshot
 
 ## Installation
 
