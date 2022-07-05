@@ -1,4 +1,4 @@
-# Social Network API
+# The Other Social Network
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
